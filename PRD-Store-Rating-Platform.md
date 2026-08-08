@@ -193,7 +193,7 @@ All list views (users, stores) support:
 ```
 backend/
   src/
-    config/db.js
+    db/
     middleware/auth.js
     routes/
     controllers/
