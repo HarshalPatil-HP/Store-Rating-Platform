@@ -15,9 +15,23 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 
+//import routes
+import healthcheck from "./routes/healthcheck.route.js";
 
-app.use("/api/healthcheck",(req,res)=>{
-    res.json({ success: true, message: 'Server is running' });
+//i mean we can define routes here
+app.use("/api/healthcheck",healthcheck);
+
+
+//for server error things (global)
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    const message = err.message || "Internal Server Error";
+    
+    return res.status(statusCode).json({
+        success: false,
+        message: message,
+        errors: err.errors || []
+    });
 });
 
 export {app};
