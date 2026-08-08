@@ -8,10 +8,10 @@ Rule: check a box only after it actually runs/works, not after you "wrote" it.
 ## DAY 1 — 8 Aug (tonight) — DB + Backend Skeleton
 
 ### Phase 1.1 — Database (THINK then CODE, ~1 hr)
-- [ ] `backend/src/db/connection.js` — mysql2 pool using `.env` vars
-- [ ] `backend/src/db/schema.sql` — write CREATE TABLE for `users`, `stores`, `ratings` (use Section 4 of the PRD, don't improvise columns)
-- [ ] Run schema.sql in MySQL Workbench/CLI, confirm 3 tables exist (`SHOW TABLES;`)
-- [ ] Manually `INSERT` one test admin row (bcrypt hash it later, plain text ok just to confirm insert works, delete after)
+- [done] `backend/src/db/connection.js` — mysql2 pool using `.env` vars
+- [done] `backend/src/db/schema.sql` — write CREATE TABLE for `users`, `stores`, `ratings` (use Section 4 of the PRD, don't improvise columns)
+- [done] Run schema.sql in MySQL Workbench/CLI, confirm 3 tables exist (`SHOW TABLES;`)
+- [done] Manually `INSERT` one test admin row (bcrypt hash it later, plain text ok just to confirm insert works, delete after)
 
 ### Phase 1.2 — Models (CODE, ~1 hr)
 - [ ] `backend/src/models/userModel.js` — functions: `createUser`, `findByEmail`, `findById`, `listUsers(filters, sort)`
