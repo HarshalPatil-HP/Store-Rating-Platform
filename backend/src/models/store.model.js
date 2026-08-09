@@ -11,36 +11,50 @@ const findById=async(id)=>{
     return rows[0];
 }
 
-const listStores=async({name,email,address, sortBy="id", order='ASC'})=>{
-    const allowedSort=["id","name","email","address","created_at"];
+const listStores = async ({ name, email, address, userId, sortBy = "id", order = 'ASC' }) => {
+    const allowedSort = ["id", "name", "email", "address", "created_at", "average_rating"];
     const sortColumn = allowedSort.includes(sortBy) ? sortBy : 'id';
     const sortOrder = order.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
 
-    let query="SELECT id,name,email,address,created_at FROM stores WHERE 1=1";
+    let query = `
+        SELECT 
+            s.id, 
+            s.name, 
+            s.email, 
+            s.address, 
+            s.created_at,
+            COALESCE(AVG(r.rating), 0) AS average_ratings,
+            (SELECT rating FROM ratings WHERE store_id = s.id AND user_id = ?) AS user_ratings
+        FROM stores s
+        LEFT JOIN ratings r ON r.store_id = s.id
+        WHERE 1=1
+    `;
 
-    const params=[];
+    const params = [userId];
 
-    if(name){
-        query+=" AND name LIKE ?";
+    if (name) {
+        query += " AND s.name LIKE ?";
         params.push(`%${name}%`);
     }
 
-    if(email){
-        query+=" AND email LIKE ?";
+    if (email) {
+        query += " AND s.email LIKE ?";
         params.push(`%${email}%`);
     }
 
-    if(address){
-        query+=" AND address LIKE ?";
+    if (address) {
+        query += " AND s.address LIKE ?";
         params.push(`%${address}%`);
     }
 
-   
+    // Group by store columns because we are using AVG() aggregate math
+    query += ` GROUP BY s.id, s.name, s.email, s.address, s.created_at`;
 
-    query+=`ORDER BY ${sortColumn} ${sortOrder}`;
-    const [rows]=await pool.execute(query,params);
+    query += ` ORDER BY ${sortColumn} ${sortOrder}`;
+    
+    const [rows] = await pool.execute(query, params);
 
-    return  rows;
+    return rows;
 };
 
 const countStores = async () => {

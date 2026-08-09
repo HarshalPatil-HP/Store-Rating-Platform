@@ -18,10 +18,12 @@ app.use(cookieParser());
 //import routes
 import healthcheck from "./routes/healthcheck.route.js";
 import authRouter from "./routes/auth.route.js";
+import userRouter from "./routes/user.route.js";
 
 //i mean we can define routes here
 app.use("/api/healthcheck",healthcheck);
 app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
 
 //for server error things (global)
 app.use((err, req, res, next) => {

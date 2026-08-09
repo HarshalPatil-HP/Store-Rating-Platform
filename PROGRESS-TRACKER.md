@@ -35,11 +35,11 @@ Rule: check a box only after it actually runs/works, not after you "wrote" it.
 - [done] `backend/src/utils/validators.js` — name/email/password/address/rating rules from PRD Section 7 (plain functions, no library needed if short on time)
 
 ### Phase 2.2 — Auth (CODE, ~2 hr)
-- [ ] `backend/src/middleware/auth.js` — `verifyToken`, `requireRole(roles)`
-- [ ] `backend/src/controllers/authController.js` — `signup`, `login` (bcrypt.compare + jwt.sign), `logout`, `updatePassword`
-- [ ] `backend/src/routes/authRoutes.js` — wire the 4 routes
-- [ ] Mount in `app.js`: `app.use('/api/auth', authRoutes)`
-- [ ] **Test in Postman NOW**: signup → login → copy token → hit a dummy protected route. Don't move on until login returns a real JWT.
+- [done] `backend/src/middleware/auth.js` — `verifyToken`, `requireRole(roles)`
+- [done] `backend/src/controllers/authController.js` — `signup`, `login` (bcrypt.compare + jwt.sign), `logout`, `updatePassword`
+- [done] `backend/src/routes/authRoutes.js` — wire the 4 routes
+- [done] Mount in `app.js`: `app.use('/api/auth', authRoutes)`
+- [done] **Test in Postman NOW**: signup → login → copy token → hit a dummy protected route. Don't move on until login returns a real JWT.
 
 ### Phase 2.3 — Admin APIs (CODE, ~2 hr)
 - [ ] `backend/src/controllers/adminController.js` — dashboard stats, createUser, listUsers, createStore, listStores
