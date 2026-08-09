@@ -16,6 +16,14 @@ const findById=async(id)=>{
     return rows[0];
 }
 
+const findByIdWithPassword = async (id) => {
+  const [rows] = await pool.execute(
+    'SELECT * FROM users WHERE id = ?',
+    [id]
+  );
+  return rows[0];
+};
+
 const countUsers = async () => {
   const [rows] = await pool.execute('SELECT COUNT(*) as total FROM users');
   return rows[0].total;
@@ -56,8 +64,7 @@ const listUsers=async({name,email,address,role, sortBy="id", order='ASC'})=>{
     return  rows;
 };
 
-const updatePassword=async({id,newPass})=>{
-
+const updatePassword=async(id,newPass)=>{
     const [result]=await pool.execute("UPDATE users SET password=? WHERE id=?",[newPass,id]);
     return result;
 }
@@ -66,6 +73,7 @@ export {
   createUser,
   findByEmail,
   findById,
+  findByIdWithPassword,
   listUsers,
   countUsers,
   updatePassword
