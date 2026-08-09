@@ -1,7 +1,7 @@
 import { asyncHandler } from "../utils/async-handler.utils.js";
 import { ApiError } from "../utils/api-error.utils.js";
 import { ApiResponse } from "../utils/api-resolve.utils.js";
-import { createUser, findByEmail, findById, updatePassword } from "../models/user.model.js";
+import { createUser, findByEmail, findById, findByIdWithPassword, updatePassword } from "../models/user.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -53,8 +53,14 @@ const loginUser = asyncHandler(async (req, res) => {
                 expiresIn: '1d'
             });
 
+    const options = {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production"
+    };
+
     return res
     .status(200)
+    .cookie("accessToken", token, options)
     .json(
         new ApiResponse(200,
             { token },
@@ -89,7 +95,7 @@ const changePassword = asyncHandler(async (req, res) => {
 
     const hashedNewPassword=await bcrypt.hash(newPassword,10);
 
-    await updatePassword(userId, hashedNewPassword);;
+    await updatePassword(userId, hashedNewPassword);
     return res
     .status(200)
     .json(

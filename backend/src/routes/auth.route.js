@@ -5,7 +5,7 @@ import {
   logoutUser,
   changePassword
 } from "../controllers/auth.controller.js";
-import { validate } from "../middleware/validate.middleware.js";
+import { validate } from "../middleware/validator.middleware.js";
 import { verifyToken } from "../middleware/auth.middleware.js";
 import {
   userRegistrationValidators,
