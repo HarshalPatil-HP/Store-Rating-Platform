@@ -47,14 +47,14 @@ Rule: check a box only after it actually runs/works, not after you "wrote" it.
 - [ ] Mount + test each endpoint in Postman with admin token
 
 ### Phase 2.4 — Normal User APIs (CODE, ~1.5 hr)
-- [ ] `backend/src/controllers/userController.js` — listStores (with search + own rating joined in), submitRating, updateRating
-- [ ] `backend/src/routes/userRoutes.js`
-- [ ] Mount + test in Postman with a normal-user token
+- [done] `backend/src/controllers/userController.js` — listStores (with search + own rating joined in), submitRating, updateRating
+- [done] `backend/src/routes/userRoutes.js`
+- [done] Mount + test in Postman with a normal-user token
 
 ### Phase 2.5 — Store Owner API (CODE, ~45 min)
-- [ ] `backend/src/controllers/ownerController.js` — dashboard: raters list + average rating
-- [ ] `backend/src/routes/ownerRoutes.js`
-- [ ] Mount + test
+- [done] `backend/src/controllers/ownerController.js` — dashboard: raters list + average rating
+- [done] `backend/src/routes/ownerRoutes.js`
+- [done] Mount + test
 
 ### Phase 2.6 — Seed script + wrap-up (~30 min)
 - [ ] `backend/src/db/seed.js` — inserts one admin (hashed password) so you can log in without manual SQL

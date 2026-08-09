@@ -78,10 +78,19 @@ const getStoreWithRatingForUser=async(storeId,userId)=>{
 
 };
 
+const findStoreByOwnerId = async (ownerId) => {
+  const [rows] = await pool.execute(
+    'SELECT * FROM stores WHERE owner_id = ?',
+    [ownerId]
+  );
+  return rows[0];
+};
+
 export {
   createStore,
   findById,
   listStores,
   countStores,
-  getStoreWithRatingForUser
+  getStoreWithRatingForUser,
+    findStoreByOwnerId
 };
