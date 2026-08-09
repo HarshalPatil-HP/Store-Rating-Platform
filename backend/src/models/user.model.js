@@ -50,7 +50,7 @@ const listUsers=async({name,email,address,role, sortBy="id", order='ASC'})=>{
         params.push(role);
     }
 
-    query+=`ORDER BY ${sortColumn} ${sortOrder}`;
+    query+=` ORDER BY ${sortColumn} ${sortOrder}`;
     const [rows]=await pool.execute(query,params);
 
     return  rows;
