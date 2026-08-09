@@ -5,7 +5,7 @@ const createStore=async ({name, email, address, owner_id})=>{
 
     return result.insertId;
 };
-
+    
 const findById=async(id)=>{
     const [rows]=await pool.execute("SELECT id,name,email,address,owner_id FROM stores WHERE id=?",[id]);
     return rows[0];

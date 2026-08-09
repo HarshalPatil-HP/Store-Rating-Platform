@@ -12,7 +12,7 @@ const findByEmail=async(email)=>{
 }
 
 const findById=async(id)=>{
-    const [rows]=await pool.execute("SELECT id,name,email,adress,role FROM users WHERE id=?",[id]);
+    const [rows]=await pool.execute("SELECT id,name,email,address,role FROM users WHERE id=?",[id]);
     return rows[0];
 }
 

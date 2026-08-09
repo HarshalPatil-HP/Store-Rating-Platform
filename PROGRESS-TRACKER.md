@@ -15,8 +15,8 @@ Rule: check a box only after it actually runs/works, not after you "wrote" it.
 
 ### Phase 1.2 — Models (CODE, ~1 hr)
 - [done] `backend/src/models/userModel.js` — functions: `createUser`, `findByEmail`, `findById`, `listUsers(filters, sort)`
-- [ ] `backend/src/models/storeModel.js` — `createStore`, `listStores(filters, sort)`, `findStoreById`
-- [ ] `backend/src/models/ratingModel.js` — `upsertRating`, `getRatingsForStore`, `getAverageForStore`
+- [done] `backend/src/models/storeModel.js` — `createStore`, `listStores(filters, sort)`, `findStoreById`
+- [done] `backend/src/models/ratingModel.js` — `upsertRating`, `getRatingsForStore`, `getAverageForStore`
 - [ ] Quick sanity check: call one model function from a scratch `test.js`, `console.log` result, delete file after
 
 ### Phase 1.3 — Core middleware + app shell (CODE, ~1 hr)
