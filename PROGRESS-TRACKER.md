@@ -20,10 +20,10 @@ Rule: check a box only after it actually runs/works, not after you "wrote" it.
 - [done] Quick sanity check: call one model function from a scratch `test.js`, `console.log` result, delete file after
 
 ### Phase 1.3 — Core middleware + app shell (CODE, ~1 hr)
-- [ ] `backend/src/middleware/errorHandler.js` — one function, consistent `{success:false, message}` JSON
-- [ ] `backend/src/app.js` — express init, `express.json()`, cors, mount error handler at bottom (routes come later)
-- [ ] `backend/server.js` — `app.listen(PORT)`
-- [ ] Run `node server.js`, confirm "listening on port X" — commit: `git commit -m "db + models + app skeleton"`
+- [done] `backend/src/middleware/errorHandler.js` — one function, consistent `{success:false, message}` JSON
+- [done] `backend/src/app.js` — express init, `express.json()`, cors, mount error handler at bottom (routes come later)
+- [done] `backend/server.js` — `app.listen(PORT)`
+- [done] Run `node server.js`, confirm "listening on port X" — commit: `git commit -m "db + models + app skeleton"`
 
 **Stop for today once this runs. Sleep matters more than rushing — you have 2.5 days left.**
 
@@ -32,7 +32,7 @@ Rule: check a box only after it actually runs/works, not after you "wrote" it.
 ## DAY 2 — 9 Aug — Full Backend (Auth → Admin → User → Owner)
 
 ### Phase 2.1 — Validators (THINK+CODE, ~45 min)
-- [ ] `backend/src/utils/validators.js` — name/email/password/address/rating rules from PRD Section 7 (plain functions, no library needed if short on time)
+- [done] `backend/src/utils/validators.js` — name/email/password/address/rating rules from PRD Section 7 (plain functions, no library needed if short on time)
 
 ### Phase 2.2 — Auth (CODE, ~2 hr)
 - [ ] `backend/src/middleware/auth.js` — `verifyToken`, `requireRole(roles)`
