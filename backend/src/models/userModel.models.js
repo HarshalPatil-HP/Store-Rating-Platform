@@ -12,7 +12,7 @@ const findByEmail=async(email)=>{
 }
 
 const findById=async(id)=>{
-    const [rows]=await pool.execute("SELECT id,name,email,adress,role FORM users WHERE id=?",[id]);
+    const [rows]=await pool.execute("SELECT id,name,email,adress,role FROM users WHERE id=?",[id]);
     return rows[0];
 }
 
@@ -21,7 +21,7 @@ const countUsers = async () => {
   return rows[0].total;
 };
 
-const listUsers=async({name,email,adress,role, sortBy:id, order='ASC'})=>{
+const listUsers=async({name,email,address,role, sortBy="id", order='ASC'})=>{
     const allowedSort=["id","name","email","address","role","created_at"];
     const sortColumn = allowedSort.includes(sortBy) ? sortBy : 'id';
     const sortOrder = order.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
@@ -31,27 +31,27 @@ const listUsers=async({name,email,adress,role, sortBy:id, order='ASC'})=>{
     const params=[];
 
     if(name){
-        query+="AND name LIKE ?";
+        query+=" AND name LIKE ?";
         params.push(`%${name}%`);
     }
 
     if(email){
-        query+="AND email LIKE ?";
+        query+=" AND email LIKE ?";
         params.push(`%${email}%`);
     }
 
     if(address){
-        query+="AND address LIKE ?";
+        query+=" AND address LIKE ?";
         params.push(`%${address}%`);
     }
 
     if(role){
-        query+="AND role = ?";
+        query+=" AND role = ?";
         params.push(role);
     }
 
     query+=`ORDER BY ${sortColumn} ${sortOrder}`;
-    const [rows]=pool.execute(query,params);
+    const [rows]=await pool.execute(query,params);
 
     return  rows;
 };
