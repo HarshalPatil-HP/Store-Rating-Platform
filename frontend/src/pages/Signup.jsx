@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
-
+import { toast } from "react-hot-toast";
 export default function Signup() {
   const [form, setForm] = useState({ name: "", email: "", password: "", address: "" });
   const [error, setError] = useState("");
@@ -16,7 +16,7 @@ export default function Signup() {
       await api.post("/auth/register", form);
       navigate("/login");
     } catch (err) {
-      setError(err.response?.data?.message || "Signup failed");
+       toast.error(err.response?.data?.message || "Login failed", { id: "form-error" });
     }
   };
 
@@ -34,7 +34,7 @@ export default function Signup() {
         <input name="password" type="password" placeholder="Password" onChange={handleChange} className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-6" required />
         <button type="submit" className="btn-brutal w-full">Sign Up</button>
         <p className="mt-4 text-sm">
-          Already have an account? <Link to="/login" className="underline">Login</Link>
+            Already have an account? <Link to="/login" className="underline">Login</Link> · <Link to="/" className="underline font-bold  ">Home</Link>
         </p>
       </form>
     </div>

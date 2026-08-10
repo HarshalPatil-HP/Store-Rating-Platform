@@ -9,9 +9,15 @@ export default function Landing() {
       <p className="text-lg max-w-xl mb-10">
         A platform where your voice shapes real store ratings — sign up and start rating.
       </p>
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap justify-center">
         <Link to="/login" className="btn-brutal">Login</Link>
         <Link to="/signup" className="btn-brutal">Sign Up</Link>
+        <Link to="/manual" className="relative btn-brutal bg-white text-[#1C1917]">
+          📖 User Manual
+          <span className="absolute -top-2 -right-2 bg-[#D97706] text-white text-xs px-2 py-0.5 rounded-full animate-pulse">
+            New
+          </span>
+        </Link>
       </div>
     </div>
   );
