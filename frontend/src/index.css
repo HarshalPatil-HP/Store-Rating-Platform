@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+@theme {
+  --color-cream: #F5F1E8;
+  --color-ink: #1C1917;
+  --color-amber: #D97706;
+  --font-display: "Archivo Black", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  font-family: var(--font-body);
+  color: var(--color-ink);
+}
+.btn-brutal {
+  background-color: var(--color-amber);
+  color: var(--color-ink);
+  border: 3px solid var(--color-ink);
+  border-radius: 6px;
+  box-shadow: 4px 4px 0px var(--color-ink);
+  font-weight: 700;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.1s ease;
+}
+.btn-brutal:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-ink);
+}
