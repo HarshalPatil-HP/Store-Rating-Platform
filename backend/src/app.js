@@ -20,12 +20,14 @@ import healthcheck from "./routes/healthcheck.route.js";
 import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
 import ownerRouter from "./routes/owner.route.js";
+import adminRouter from "./routes/admin.routes.js";
 
 //i mean we can define routes here
 app.use("/api/healthcheck",healthcheck);
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/owner", ownerRouter);
+app.use("/api/admin", adminRouter);
 
 //for server error things (global)
 app.use((err, req, res, next) => {

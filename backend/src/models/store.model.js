@@ -86,11 +86,20 @@ const findStoreByOwnerId = async (ownerId) => {
   return rows[0];
 };
 
+const findStoreByEmail = async (email) => {
+  const [rows] = await pool.execute(
+    'SELECT * FROM stores WHERE email = ?',
+    [email]
+  );
+  return rows[0];
+}
+
 export {
   createStore,
   findById,
   listStores,
   countStores,
   getStoreWithRatingForUser,
+  findStoreByEmail,
     findStoreByOwnerId
 };
