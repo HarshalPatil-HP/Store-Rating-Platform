@@ -76,12 +76,17 @@ export default function AdminDashboard() {
       </div>
 
       <div className="flex gap-3 mb-6">
-        <button onClick={() => setTab("users")} className={`btn-brutal ${tab !== "users" && "opacity-50"}`}>Users</button>
-        <button onClick={() => setTab("stores")} className={`btn-brutal ${tab !== "stores" && "opacity-50"}`}>Stores</button>
+         <button onClick={() => setTab("users")} className={`btn-brutal ${tab !== "users" && "opacity-50"}`}>
+            Our Members
+        </ button>
+        <button onClick={() => setTab("stores")} className={`btn-brutal ${tab !== "stores" && "opacity-50"}`}>
+            Active Stores
+        </button>
       </div>
 
       {tab === "users" && (
         <>
+         <h2 className="font-[Archivo_Black] text-2xl mb-4">Our Members</h2>
           <form onSubmit={handleAddUser} className="bg-white border-[3px] border-[#1C1917] rounded-lg p-5 mb-6 shadow-[4px_4px_0px_#1C1917]">
             <h3 className="font-bold mb-3">Add User</h3>
             <div className="grid md:grid-cols-2 gap-3 mb-3">
@@ -114,6 +119,7 @@ export default function AdminDashboard() {
 
       {tab === "stores" && (
         <>
+         <h2 className="font-[Archivo_Black] text-2xl mb-4">Active Stores</h2>
           <form onSubmit={handleAddStore} className="bg-white border-[3px] border-[#1C1917] rounded-lg p-5 mb-6 shadow-[4px_4px_0px_#1C1917]">
             <h3 className="font-bold mb-3">Add Store</h3>
             <div className="grid md:grid-cols-2 gap-3 mb-3">
