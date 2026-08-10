@@ -42,9 +42,9 @@ Rule: check a box only after it actually runs/works, not after you "wrote" it.
 - [done] **Test in Postman NOW**: signup → login → copy token → hit a dummy protected route. Don't move on until login returns a real JWT.
 
 ### Phase 2.3 — Admin APIs (CODE, ~2 hr)
-- [ ] `backend/src/controllers/adminController.js` — dashboard stats, createUser, listUsers, createStore, listStores
-- [ ] `backend/src/routes/adminRoutes.js` — all routes behind `requireRole(['admin'])`
-- [ ] Mount + test each endpoint in Postman with admin token
+- [done] `backend/src/controllers/adminController.js` — dashboard stats, createUser, listUsers, createStore, listStores
+- [done] `backend/src/routes/adminRoutes.js` — all routes behind `requireRole(['admin'])`
+- [done] Mount + test each endpoint in Postman with admin token
 
 ### Phase 2.4 — Normal User APIs (CODE, ~1.5 hr)
 - [done] `backend/src/controllers/userController.js` — listStores (with search + own rating joined in), submitRating, updateRating
@@ -57,7 +57,7 @@ Rule: check a box only after it actually runs/works, not after you "wrote" it.
 - [done] Mount + test
 
 ### Phase 2.6 — Seed script + wrap-up (~30 min)
-- [ ] `backend/src/db/seed.js` — inserts one admin (hashed password) so you can log in without manual SQL
+- [done] `backend/src/db/seed.js` — inserts one admin (hashed password) so you can log in without manual SQL
 - [ ] Full Postman pass: every route from PRD Section 5, one by one
 - [ ] `git commit -m "backend complete"`, merge `backend` branch into `main`
 

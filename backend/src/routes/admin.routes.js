@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { verifyToken, requireRole } from "../middleware/auth.middleware.js";
-import { validate } from "../middleware/validate.middleware.js";
+import { validate } from "../middleware/validator.middleware.js";
 import {
   getDashBoardStats,
   createUserByAdmin,
