@@ -5,7 +5,7 @@ const userRegistrationValidators = () => {
     body("name")
       .trim()
       .notEmpty().withMessage("Name is required")
-      .isLength({ min: 20, max: 60 }).withMessage("Name must be between 20 and 60 characters"),
+      .isLength({ max: 60 }).withMessage("Name must be between 20 and 60 characters"),
 
     body("email")
       .trim()
@@ -57,7 +57,7 @@ const createUserByAdminValidators = () => {
     body("name")
       .trim()
       .notEmpty().withMessage("Name is required")
-      .isLength({ min: 20, max: 60 }).withMessage("Name must be between 20 and 60 characters"),
+      .isLength({ max: 60 }).withMessage("Name must be between 20 and 60 characters"),
 
     body("email")
       .trim()
@@ -87,7 +87,7 @@ const createStoreValidators = () => {
     body("name")
       .trim()
       .notEmpty().withMessage("Store name is required")
-      .isLength({ min: 20, max: 60 }).withMessage("Store name must be between 20 and 60 characters"),
+      .isLength({ max: 60 }).withMessage("Store name must be between 20 and 60 characters"),
 
     body("email")
       .trim()

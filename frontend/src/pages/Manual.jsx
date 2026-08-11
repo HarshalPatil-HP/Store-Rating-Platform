@@ -24,7 +24,7 @@ const sections = [
       "Log in to see your store's average rating",
       "View the full list of users who rated your store",
       "Track how your rating changes over time",
-      "For you a small owner id gift if you are reading this",
+      "Small gift for you if you are reading this",
       "giftbydeveloper@gmail.com  Gift@123",
     ],
   },
