@@ -7,30 +7,40 @@ export default function UserForm({ userForm, onChange, onSubmit }) {
       <h3 className="font-bold mb-3">Add User</h3>
       <div className="grid md:grid-cols-2 gap-3 mb-3">
         <input
-          placeholder="Name (20-60 chars)"
+          placeholder="Name (5–40 chars)"
           value={userForm.name}
           onChange={(e) => onChange({ ...userForm, name: e.target.value })}
+          minLength={5}
+          maxLength={40}
           className="border-[3px] border-[#1C1917] rounded-md p-2"
           required
         />
         <input
           placeholder="Email"
+          type="email"
           value={userForm.email}
           onChange={(e) => onChange({ ...userForm, email: e.target.value })}
+          minLength={5}
+          maxLength={40}
           className="border-[3px] border-[#1C1917] rounded-md p-2"
           required
         />
         <input
-          placeholder="Password"
+          placeholder="Password (8–16 chars)"
+          type="password"
           value={userForm.password}
           onChange={(e) => onChange({ ...userForm, password: e.target.value })}
+          minLength={5}
+          maxLength={16}
           className="border-[3px] border-[#1C1917] rounded-md p-2"
           required
         />
         <input
-          placeholder="Address"
+          placeholder="Address (5–40 chars)"
           value={userForm.address}
           onChange={(e) => onChange({ ...userForm, address: e.target.value })}
+          minLength={5}
+          maxLength={40}
           className="border-[3px] border-[#1C1917] rounded-md p-2"
           required
         />

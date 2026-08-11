@@ -16,7 +16,7 @@ export default function Signup() {
       await api.post("/auth/register", form);
       navigate("/login");
     } catch (err) {
-       toast.error(err.response?.data?.message || "Login failed", { id: "form-error" });
+       toast.error(err.response?.data?.message || "Sign up failed", { id: "form-error" });
     }
   };
 
@@ -28,10 +28,10 @@ export default function Signup() {
       >
         <h2 className="font-[Archivo_Black] text-3xl mb-6">Sign Up</h2>
         {error && <p className="text-red-600 mb-4">{error}</p>}
-        <input name="name" placeholder="Full Name (min 20 chars)" onChange={handleChange} className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-4" required />
-        <input name="email" type="email" placeholder="Email" onChange={handleChange} className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-4" required />
-        <input name="address" placeholder="Address" onChange={handleChange} className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-4" required />
-        <input name="password" type="password" placeholder="Password" onChange={handleChange} className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-6" required />
+        <input name="name" placeholder="Full Name (5–40 chars)" onChange={handleChange} minLength={5} maxLength={40} className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-4" required />
+        <input name="email" type="email" placeholder="Email" onChange={handleChange} minLength={5} maxLength={40} className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-4" required />
+        <input name="address" placeholder="Address (5–40 chars)" onChange={handleChange} minLength={5} maxLength={40} className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-4" required />
+        <input name="password" type="password" placeholder="Password (8–16 chars)" onChange={handleChange} minLength={5} maxLength={16} className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-6" required />
         <button type="submit" className="btn-brutal w-full">Sign Up</button>
         <p className="mt-4 text-sm">
             Already have an account? <Link to="/login" className="underline">Login</Link> · <Link to="/" className="underline font-bold  ">Home</Link>

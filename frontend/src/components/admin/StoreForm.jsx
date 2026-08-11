@@ -7,23 +7,30 @@ export default function StoreForm({ storeForm, onChange, onSubmit, storeOwners }
       <h3 className="font-bold mb-3">Add Store</h3>
       <div className="grid md:grid-cols-2 gap-3 mb-3">
         <input
-          placeholder="Store Name"
+          placeholder="Store Name (5–40 chars)"
           value={storeForm.name}
           onChange={(e) => onChange({ ...storeForm, name: e.target.value })}
+          minLength={5}
+          maxLength={40}
           className="border-[3px] border-[#1C1917] rounded-md p-2"
           required
         />
         <input
           placeholder="Email"
+          type="email"
           value={storeForm.email}
           onChange={(e) => onChange({ ...storeForm, email: e.target.value })}
+          minLength={5}
+          maxLength={40}
           className="border-[3px] border-[#1C1917] rounded-md p-2"
           required
         />
         <input
-          placeholder="Address"
+          placeholder="Address (5–40 chars)"
           value={storeForm.address}
           onChange={(e) => onChange({ ...storeForm, address: e.target.value })}
+          minLength={5}
+          maxLength={40}
           className="border-[3px] border-[#1C1917] rounded-md p-2"
           required
         />

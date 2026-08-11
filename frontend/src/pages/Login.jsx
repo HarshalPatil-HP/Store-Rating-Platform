@@ -38,14 +38,18 @@ export default function Login() {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          minLength={5}
+          maxLength={40}
           className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-4"
           required
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Password (8–16 chars)"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          minLength={5}
+          maxLength={16}
           className="w-full border-[3px] border-[#1C1917] rounded-md p-2 mb-6"
           required
         />

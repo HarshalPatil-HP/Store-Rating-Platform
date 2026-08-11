@@ -5,18 +5,18 @@ const userRegistrationValidators = () => {
     body("name")
       .trim()
       .notEmpty().withMessage("Name is required")
-      .isLength({ max: 60 }).withMessage("Name must be between 20 and 60 characters"),
+      .isLength({ min: 5, max: 40 }).withMessage("Name must be between 5 and 40 characters"),
 
     body("email")
       .trim()
       .notEmpty().withMessage("Email is required")
       .isEmail().withMessage("Please provide a valid email address")
-      .normalizeEmail(),
+      .customSanitizer((value) => value.toLowerCase()),
 
     body("address")
       .trim()
       .notEmpty().withMessage("Address is required")
-      .isLength({ max: 400 }).withMessage("Address cannot exceed 400 characters"),
+      .isLength({ min: 5, max: 40 }).withMessage("Address must be between 5 and 40 characters"),
 
     body("password")
       .notEmpty().withMessage("Password is required")
@@ -32,7 +32,7 @@ const userLoginValidators = () => {
       .trim()
       .notEmpty().withMessage("Email is required")
       .isEmail().withMessage("Please provide a valid email address")
-      .normalizeEmail(),
+      .customSanitizer((value) => value.toLowerCase()),
 
     body("password")
       .notEmpty().withMessage("Password is required")
@@ -57,18 +57,18 @@ const createUserByAdminValidators = () => {
     body("name")
       .trim()
       .notEmpty().withMessage("Name is required")
-      .isLength({ max: 60 }).withMessage("Name must be between 20 and 60 characters"),
+      .isLength({ min: 5, max: 40 }).withMessage("Name must be between 5 and 40 characters"),
 
     body("email")
       .trim()
       .notEmpty().withMessage("Email is required")
       .isEmail().withMessage("Please provide a valid email address")
-      .normalizeEmail(),
+      .customSanitizer((value) => value.toLowerCase()),
 
     body("address")
       .trim()
       .notEmpty().withMessage("Address is required")
-      .isLength({ max: 400 }).withMessage("Address cannot exceed 400 characters"),
+      .isLength({ min: 5, max: 40 }).withMessage("Address must be between 5 and 40 characters"),
 
     body("password")
       .notEmpty().withMessage("Password is required")
@@ -87,18 +87,18 @@ const createStoreValidators = () => {
     body("name")
       .trim()
       .notEmpty().withMessage("Store name is required")
-      .isLength({ max: 60 }).withMessage("Store name must be between 20 and 60 characters"),
+      .isLength({ min: 5, max: 40 }).withMessage("Store name must be between 5 and 40 characters"),
 
     body("email")
       .trim()
       .notEmpty().withMessage("Store email is required")
       .isEmail().withMessage("Please provide a valid email address")
-      .normalizeEmail(),
+      .customSanitizer((value) => value.toLowerCase()),
 
     body("address")
       .trim()
       .notEmpty().withMessage("Address is required")
-      .isLength({ max: 400 }).withMessage("Address cannot exceed 400 characters")
+      .isLength({ min: 5, max: 40 }).withMessage("Address must be between 5 and 40 characters")
   ];
 };
 
