@@ -24,6 +24,8 @@ const sections = [
       "Log in to see your store's average rating",
       "View the full list of users who rated your store",
       "Track how your rating changes over time",
+      "For you a small owner id gift if you are reading this",
+      "giftbydeveloper@gmail.com  Gift@123",
     ],
   },
   {
@@ -35,6 +37,8 @@ const sections = [
       "Add new users — assign them Normal, Admin, or Store Owner role",
       "Add new stores and optionally assign a Store Owner to them",
       "View & filter all users and stores",
+      "Special gift for you if you are reading this",
+      "admin@test.com  Admin@1234"
     ],
   },
 ];
