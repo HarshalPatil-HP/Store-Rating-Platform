@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
-import { toast } from "react-hot-toast";
+import { showErrorQueue } from "../utils/showErrorQueue";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +21,7 @@ export default function Login() {
       else if (user.role === "store_owner") navigate("/owner/dashboard");
       else navigate("/stores");
     } catch (err) {
-       toast.error(err.response?.data?.message || "Login failed", { id: "auth-error" });
+       showErrorQueue(err, "Login failed");
     }
   };
 

@@ -5,18 +5,19 @@ const createStoreValidators = () => {
     body("name")
       .trim()
       .notEmpty().withMessage("Store name is required")
-      .isLength({ max: 60 }).withMessage("Store name must be between 20 and 60 characters"),
+      .isLength({ min: 5, max: 40 }).withMessage("Store name must be between 5 and 40 characters")
+      .matches(/^[a-zA-Z\s]+$/).withMessage("Store name must contain only letters and spaces"),
 
     body("email")
       .trim()
       .notEmpty().withMessage("Store email is required")
-      .isEmail().withMessage("Please provide a valid email address")
-      .normalizeEmail(),
+      .isEmail().withMessage("Please enter a valid email address (e.g. store@gmail.com)")
+      .customSanitizer((value) => value.toLowerCase()),
 
     body("address")
       .trim()
       .notEmpty().withMessage("Address is required")
-      .isLength({ max: 400 }).withMessage("Address cannot exceed 400 characters")
+      .isLength({ min: 5, max: 40 }).withMessage("Address must be between 5 and 40 characters")
   ];
 };
 

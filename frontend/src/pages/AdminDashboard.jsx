@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import { showErrorQueue } from "../utils/showErrorQueue";
 import UserForm from "../components/admin/UserForm";
 import UserList from "../components/admin/UserList";
 import StoreForm from "../components/admin/StoreForm";
@@ -38,12 +39,7 @@ export default function AdminDashboard() {
       setUserForm({ name: "", email: "", password: "", address: "", role: "normal" });
       fetchAll();
     } catch (err) {
-      const errors = err.response?.data?.errors;
-      if (errors && errors.length > 0) {
-        errors.forEach(e => toast.error(Object.values(e)[0]));
-      } else {
-        toast.error(err.response?.data?.message || "Failed to add user", { id: "form-error" });
-      }
+      showErrorQueue(err, "Failed to add user");
     }
   };
 
@@ -55,12 +51,7 @@ export default function AdminDashboard() {
       setStoreForm({ name: "", email: "", address: "", owner_id: "" });
       fetchAll();
     } catch (err) {
-      const errors = err.response?.data?.errors;
-      if (errors && errors.length > 0) {
-        errors.forEach(e => toast.error(Object.values(e)[0]));
-      } else {
-        toast.error(err.response?.data?.message || "Failed to add store", { id: "form-error" });
-      }
+      showErrorQueue(err, "Failed to add store");
     }
   };
 

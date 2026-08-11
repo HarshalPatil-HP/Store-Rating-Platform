@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
-import { toast } from "react-hot-toast";
+import { showErrorQueue } from "../utils/showErrorQueue";
 export default function Signup() {
   const [form, setForm] = useState({ name: "", email: "", password: "", address: "" });
   const [error, setError] = useState("");
@@ -16,7 +16,7 @@ export default function Signup() {
       await api.post("/auth/register", form);
       navigate("/login");
     } catch (err) {
-       toast.error(err.response?.data?.message || "Sign up failed", { id: "form-error" });
+       showErrorQueue(err, "Sign up failed");
     }
   };
 
