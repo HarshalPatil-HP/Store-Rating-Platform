@@ -52,7 +52,6 @@ Store-Rating-Platform/
 ├── PRD-Store-Rating-Platform.md   # product requirements doc
 └── PROGRESS-TRACKER.md            # build log
 ```
-
 ---
 
 ## Getting Started (Local Setup)
