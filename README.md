@@ -99,7 +99,6 @@ npm install
 npm run dev
 ```
 By default the frontend points to the deployed backend in `src/services/api.js` — update `baseURL` there to `http://localhost:3000/api` for local development against a local backend.
-
 ---
 
 ## User Roles
